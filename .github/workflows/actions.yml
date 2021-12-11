@@ -14,6 +14,11 @@ jobs:
         run: |
           pwd
           ls -a
+          echo $GITHUB_SHA
+          echo $GITHUG_REPOSITORY
+          echo $GITHUB_WORKSPACE
+          # echo "${{ github.token }}"
+
       - name: Simple JS Action
         id: greet
         uses: actions/hello-world-javascript-action@v1 #this a repository in github
