@@ -1,0 +1,17 @@
+name: Actions Workflow
+
+on: [push]
+
+#actions can either receive inputs or retrieve outputs
+
+jobs:
+  run-github-actions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Simple JS Action
+        id: greet
+        uses: actions/hello-world-javascript-action@v1 #this a repository in github
+        with:
+          who-to-greet: Paulo
+      - name: Log Greeting Time
+        run: echo "${{ steps.greet.outputs.time }}"
