@@ -13,4 +13,4 @@ jobs:
           echo "start script"
           node -v 
           npm -v
-          echo "end script"
+          echo "end script!"
