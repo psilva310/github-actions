@@ -1,6 +1,10 @@
 name: Actions Workflow
 
-on: [push, pull_request] #pull request merge
+on: 
+  push:
+  pull_request:
+    types: [closed, assigned, opened, reopened]
+  #pull request merge
 
 #actions can either receive inputs or retrieve outputs
 
