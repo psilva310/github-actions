@@ -1,13 +1,32 @@
 name: Actions Workflow
 
 on: 
-  schedule:
-    - cron: "0/5 * * * *"
+  #repository_dispatch:
+    #types: ["build"]
+  #schedule:
+    #- cron: "0/5 * * * *"
     #- cron: "0/6 * * * *"
-  #push:
-  pull_request:
-    types: [closed, assigned, opened, reopened]
-  #pull request merge
+  push:
+    branches:
+      - master
+      - 'feature/*' # doesn't match feature/feat/a
+      - 'feature/**' # matches feature/feat/a
+      - '!feature/featC' # ignores this branch. You have to put it at last on the list
+    tags:
+      - v1.*
+    # you cannot have both tags and tags-ignore
+    #tags-ignore:
+
+    # you cannot have both paths and paths-ignore
+    #paths-ignore:
+    paths:
+      - '**.js' # only run this workflow if we change some *.js file
+      - '!filename.js'
+    # you cannot have both branches and branches_ignore
+    #branches-ignore:
+    #  - master
+  #pull_request:
+  #  types: [closed, assigned, opened, reopened]
 
 #actions can either receive inputs or retrieve outputs
 
